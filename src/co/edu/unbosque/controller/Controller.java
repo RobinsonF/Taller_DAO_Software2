@@ -23,7 +23,7 @@ public class Controller implements ActionListener, KeyListener {
 	public void actionPerformed(ActionEvent e) {
 		String comando = e.getActionCommand();
 		if (comando.equals(vista.getCOMANDO_DAO_ARREGLO())) {
-			System.out.println("Hola");
+			vista.getPanelArreglo().setVisible(true);
 		}
 		if (comando.equals(vista.getCOMANDO_DAO_BINARIO())) {
 
@@ -34,6 +34,33 @@ public class Controller implements ActionListener, KeyListener {
 		if (comando.equals(vista.getCOMANDO_DAO_NORELACIONAL())) {
 
 		}
+		
+		if (comando.equals(vista.getPanelArreglo().getCOMANDO_AGREGAR_PERSONA())) {
+			vista.getPanelArreglo().getSplitPane().setRightComponent(vista.getPanelArreglo().getPanelAgregar());
+		}
+		
+		if (comando.equals(vista.getPanelArreglo().getCOMANDO_VER_INFORMACION())) {
+			vista.getPanelArreglo().getSplitPane().setRightComponent(vista.getPanelArreglo().getPanelConsulta());
+			vista.getPanelArreglo().getPanelConsulta().getPanelTablas().limpiarPanel();
+			String[][] info = modelo.getPersonaArreglo().mostarInfoPersonas();
+			vista.getPanelArreglo().getPanelConsulta().getPanelTablas().limpiarPanel();
+			vista.getPanelArreglo().getPanelConsulta().getPanelTablas().mostrarTablaClientes(info);
+			
+		}
+		
+		if(comando.equals(vista.getPanelArreglo().getPanelAgregar().getCOMANDO_CREAR())) {
+			String[] entradas = vista.getPanelArreglo().getPanelAgregar().verificarEntradas();
+			if(entradas[0].equals("0")) {
+				if(modelo.getPersonaArreglo().agregarPersona(entradas[1], entradas[2], entradas[6], entradas[3], entradas[4], entradas[5])) {
+					vista.mostrarMensajeInformacion("Persona creada correctamente");
+				}else {
+					vista.mostrarMensajeInformacion("La persona ya se encuentra registrada");
+				}
+			}else {
+				vista.mostrarMensajeInformacion(entradas[1]);
+			}
+		}
+		
 	}
 
 	@Override

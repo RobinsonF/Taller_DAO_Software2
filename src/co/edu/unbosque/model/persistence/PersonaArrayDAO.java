@@ -2,6 +2,7 @@ package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
 
+
 public class PersonaArrayDAO {
 
 	private ArrayList<PersonaDTO> listaPersona;
@@ -62,6 +63,34 @@ public class PersonaArrayDAO {
 			verificar = false;
 		}
 		return verificar;
+	}
+
+	/**
+	 * @return the listaPersona
+	 */
+	public ArrayList<PersonaDTO> getListaPersona() {
+		return listaPersona;
+	}
+
+	/**
+	 * @param listaPersona the listaPersona to set
+	 */
+	public void setListaPersona(ArrayList<PersonaDTO> listaPersona) {
+		this.listaPersona = listaPersona;
+	}
+	
+	public String[][] mostarInfoPersonas() {
+
+		String[][] infoUsuarios = new String[listaPersona.size()][6];
+		for (int i = 0; i < listaPersona.size(); i++) {
+			infoUsuarios[i][0] = listaPersona.get(i).getNombre();
+			infoUsuarios[i][1] = listaPersona.get(i).getApellido();
+			infoUsuarios[i][2] = listaPersona.get(i).getTelefono();
+			infoUsuarios[i][3] = listaPersona.get(i).getEdad();
+			infoUsuarios[i][4] = listaPersona.get(i).getCedula();
+			infoUsuarios[i][5] = listaPersona.get(i).getSexo();
+		}
+		return infoUsuarios;
 	}
 
 }

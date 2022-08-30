@@ -24,17 +24,18 @@ public class Vista extends JFrame{
 	private JMenu menu;
 	private JMenuItem menuItem1, menuItem2, menuItem3, menuItem4;
 	private JPanel panelPrincipal;
+	private PanelArreglo panelArreglo;
 
 
 	public Vista(Controller controller) {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(650, 400);
+		this.setSize(700, 430);
 		this.setTitle("Estructura DAO");
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setVisible(true);
 		panelPrincipal = new JPanel();
-		panelPrincipal.setSize(650, 400);
+		panelPrincipal.setSize(700, 430);
 		panelPrincipal.setLayout(null);
 		menuBar = new JMenuBar();
 		menu = new JMenu("Opciones");
@@ -51,9 +52,16 @@ public class Vista extends JFrame{
 		menu.add(menuItem2);
 		menu.add(menuItem3);
 		menu.add(menuItem4);
-
+		
+		panelArreglo = new PanelArreglo(controller);
+		panelArreglo.setVisible(false);
+		panelArreglo.setBounds(0, 0, 690, 370);
+		
+		panelPrincipal.add(panelArreglo);
+	
 		setJMenuBar(menuBar);
 		add(panelPrincipal);
+		
 		asignarOyentes(controller);
 		repaint();
 		revalidate();
@@ -64,6 +72,9 @@ public class Vista extends JFrame{
 		menuItem2.addActionListener(controller);
 		menuItem3.addActionListener(controller);
 		menuItem4.addActionListener(controller);
+		panelArreglo.getBtnAgregarPersona().addActionListener(controller);
+		panelArreglo.getBtnVerInfo().addActionListener(controller);
+		panelArreglo.getPanelAgregar().getBtnCrear().addActionListener(controller);
 	}
 	
 	/**
@@ -129,6 +140,34 @@ public class Vista extends JFrame{
 	 */
 	public String getCOMANDO_DAO_NORELACIONAL() {
 		return COMANDO_DAO_NORELACIONAL;
+	}
+
+	/**
+	 * @return the panelPrincipal
+	 */
+	public JPanel getPanelPrincipal() {
+		return panelPrincipal;
+	}
+
+	/**
+	 * @param panelPrincipal the panelPrincipal to set
+	 */
+	public void setPanelPrincipal(JPanel panelPrincipal) {
+		this.panelPrincipal = panelPrincipal;
+	}
+
+	/**
+	 * @return the panelArreglo
+	 */
+	public PanelArreglo getPanelArreglo() {
+		return panelArreglo;
+	}
+
+	/**
+	 * @param panelArreglo the panelArreglo to set
+	 */
+	public void setPanelArreglo(PanelArreglo panelArreglo) {
+		this.panelArreglo = panelArreglo;
 	}
 
 	
