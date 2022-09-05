@@ -1,6 +1,7 @@
 package co.edu.unbosque.model.persistence;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 import co.edu.unbosque.model.Conexion;
@@ -35,7 +36,39 @@ public class PersonaSqlDAO {
 			System.err.println(e.getClass().getName() + ": " + e.getMessage());
 			System.exit(0);
 		}
-		System.out.println("Records created successfully");
+		System.out.println("La información ha sido guardada correctamente");
+	}
+
+	public static void buscarPersonas() {
+		connection.abrirConexion();
+		Statement stmt = null;
+		try {
+
+			stmt = connection.getConnection().createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM persona;");
+			while (rs.next()) {
+				String cedula = rs.getString("cedula");
+				String nombre = rs.getString("nombre");
+				String apellido = rs.getString("apellido");
+				String sexo = rs.getString("sexo");
+				String edad = rs.getString("edad");
+				String telefono = rs.getString("telefono");
+				System.out.println("cedula : " + cedula);
+				System.out.println("nombre : " + nombre);
+				System.out.println("apellido : " + apellido);
+				System.out.println("sexo : " + sexo);
+				System.out.println("edad : " + edad);
+				System.out.println("telefono : " + telefono);
+				System.out.println();
+			}
+			rs.close();
+			stmt.close();
+			connection.getConnection().close();
+		} catch (Exception e) {
+			System.err.println(e.getClass().getName() + ": " + e.getMessage());
+			System.exit(0);
+		}
+		System.out.println("Información mostrada correctamente");
 	}
 
 }
