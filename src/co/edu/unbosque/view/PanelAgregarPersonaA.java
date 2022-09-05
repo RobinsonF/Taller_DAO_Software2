@@ -33,7 +33,7 @@ public class PanelAgregarPersonaA extends JPanel{
 	private JPanel panelBotones;
 	
 	public PanelAgregarPersonaA() {
-		setBorder(new TitledBorder("Registro de persona"));
+		setBorder(new TitledBorder("Registro de persona a arreglo"));
 		setLayout(new BorderLayout());
 		this.labelNombre = new JLabel("Nombre: ");
 		this.labelApellido = new JLabel("Apellido: ");

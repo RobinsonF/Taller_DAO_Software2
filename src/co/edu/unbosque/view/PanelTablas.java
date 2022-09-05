@@ -45,6 +45,28 @@ public class PanelTablas extends JPanel {
 		tableClientes.repaint();
 		sp.repaint();
 	}
+	
+	public void mostrarTablaPersonas2(String[][] infoPersonas) {
+		setBorder(new TitledBorder("Información de personas"));
+		String[] titulos = { "Nombres", "Apellidos", "Telefono", "Edad", "Cédula", "Sexo" };
+		tableClientes = new JTable(infoPersonas, titulos);
+		JScrollPane sp = new JScrollPane(tableClientes);
+		tableClientes.setDefaultEditor(tableClientes.getColumnClass(0), null);
+		tableClientes.setRowHeight(20);
+		tableClientes.setAutoResizeMode(JTable.AUTO_RESIZE_NEXT_COLUMN);
+		sp.setViewportView(tableClientes);
+		tableClientes.getTableHeader().setForeground(Color.black);
+		tableClientes.getTableHeader().isBackgroundSet();
+		tableClientes.getTableHeader().setEnabled(false);
+		Font font = new Font("SansSerif", Font.BOLD, 12);
+		tableClientes.setFont(font);
+		tableClientes.getTableHeader().setFont(font);
+		tableClientes.setGridColor(Color.white);
+		add(sp);
+		validate();
+		tableClientes.repaint();
+		sp.repaint();
+	}
 
 	public JTable getTableClientes() {
 		return tableClientes;

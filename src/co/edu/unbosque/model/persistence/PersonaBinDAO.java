@@ -73,7 +73,6 @@ public class PersonaBinDAO {
 		return verificar;
 	}
 
-
 	public ArrayList<PersonaDTO> getListaPersonas() {
 		return listaPersonas;
 	}

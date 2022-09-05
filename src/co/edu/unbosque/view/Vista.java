@@ -25,6 +25,7 @@ public class Vista extends JFrame{
 	private JMenuItem menuItem1, menuItem2, menuItem3, menuItem4;
 	private JPanel panelPrincipal;
 	private PanelArreglo panelArreglo;
+	private PanelBinario panelBinario;
 
 
 	public Vista(Controller controller) {
@@ -57,7 +58,12 @@ public class Vista extends JFrame{
 		panelArreglo.setVisible(false);
 		panelArreglo.setBounds(0, 0, 690, 370);
 		
+		panelBinario = new PanelBinario(controller);
+		panelBinario.setVisible(false);
+		panelBinario.setBounds(0, 0, 690, 370);
+		
 		panelPrincipal.add(panelArreglo);
+		panelPrincipal.add(panelBinario);
 	
 		setJMenuBar(menuBar);
 		add(panelPrincipal);
@@ -75,6 +81,9 @@ public class Vista extends JFrame{
 		panelArreglo.getBtnAgregarPersona().addActionListener(controller);
 		panelArreglo.getBtnVerInfo().addActionListener(controller);
 		panelArreglo.getPanelAgregar().getBtnCrear().addActionListener(controller);
+		panelBinario.getBtnAgregarPersona().addActionListener(controller);
+		panelBinario.getBtnVerInfo().addActionListener(controller);
+		panelBinario.getPanelAgregar().getBtnCrear().addActionListener(controller);
 	}
 	
 	/**
@@ -169,6 +178,22 @@ public class Vista extends JFrame{
 	public void setPanelArreglo(PanelArreglo panelArreglo) {
 		this.panelArreglo = panelArreglo;
 	}
+
+	/**
+	 * @return the panelBinario
+	 */
+	public PanelBinario getPanelBinario() {
+		return panelBinario;
+	}
+
+	/**
+	 * @param panelBinario the panelBinario to set
+	 */
+	public void setPanelBinario(PanelBinario panelBinario) {
+		this.panelBinario = panelBinario;
+	}
+	
+	
 
 	
 }
