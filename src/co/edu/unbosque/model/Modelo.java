@@ -10,11 +10,13 @@ public class Modelo {
 	
 	private PersonaArrayDAO personaArreglo;
 	private PersonaBinDAO personaBin;
+	private Conexion cone;
 	
 	public Modelo() {
 		
 		personaArreglo = new PersonaArrayDAO();
 		personaBin = new PersonaBinDAO();
+		cone = new Conexion();
 		
 	}
 	
@@ -59,5 +61,21 @@ public class Modelo {
 	public void setPersonaBin(PersonaBinDAO personaBin) {
 		this.personaBin = personaBin;
 	}
+
+	/**
+	 * @return the cone
+	 */
+	public Conexion getCone() {
+		return cone;
+	}
+
+	/**
+	 * @param cone the cone to set
+	 */
+	public void setCone(Conexion cone) {
+		this.cone = cone;
+	}
+	
+	
 
 }

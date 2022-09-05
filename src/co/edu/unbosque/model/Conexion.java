@@ -13,7 +13,7 @@ public class Conexion {
 		Connection connection = null;
 		 
 	      try{
-	         connection = DriverManager.getConnection( "jdbc:sqlite:data.sqlite" );
+	         connection = DriverManager.getConnection( "jdbc:sqlite:Data\\data.db" );
 	         if ( connection != null ){
 	            System.out.println("Conexión exitosa!");
 	         }

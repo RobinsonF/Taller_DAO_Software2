@@ -4,14 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-
-import javax.swing.border.TitledBorder;
 
 import co.edu.unbosque.model.Modelo;
-import co.edu.unbosque.model.persistence.PersonaDTO;
-import co.edu.unbosque.model.persistence.Persona;
-
 import co.edu.unbosque.view.Vista;
 
 public class Controller implements ActionListener, KeyListener {
@@ -22,6 +16,7 @@ public class Controller implements ActionListener, KeyListener {
 	public Controller() {
 		vista = new Vista(this);
 		modelo = new Modelo();
+		modelo.getCone().abrirConexion();
 
 	}
 
